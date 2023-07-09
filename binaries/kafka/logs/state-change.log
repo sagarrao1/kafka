@@ -1,1 +1,5 @@
-[2023-07-07 17:38:56,950] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@1a3869f4, name=log4j:logger=state.change.logger (state.change.logger)
+[2023-07-09 10:51:12,108] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@1a3869f4, name=log4j:logger=state.change.logger (state.change.logger)
+[2023-07-09 10:51:48,923] TRACE [Controller id=1 epoch=1] Received response {error_code=0,_tagged_fields={}} for request UPDATE_METADATA with correlation id 0 sent to broker localhost:9092 (id: 1 rack: null) (state.change.logger)
+[2023-07-09 10:52:23,013] TRACE [Controller id=1 epoch=1] Received response {error_code=0,_tagged_fields={}} for request UPDATE_METADATA with correlation id 1 sent to broker localhost:9092 (id: 1 rack: null) (state.change.logger)
+[2023-07-09 10:52:23,688] TRACE [Controller id=1 epoch=1] Received response {error_code=0,_tagged_fields={}} for request UPDATE_METADATA with correlation id 0 sent to broker localhost:9094 (id: 3 rack: null) (state.change.logger)
+[2023-07-09 10:52:35,695] TRACE [Controller id=1 epoch=1] Received response {error_code=0,_tagged_fields={}} for request UPDATE_METADATA with correlation id 2 sent to broker localhost:9092 (id: 1 rack: null) (state.change.logger)
