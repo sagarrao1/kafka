@@ -1,0 +1,69 @@
+-- start zookeeper
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\zookeeper.properties"
+
+-- start broker 1
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\server.properties"
+
+-- start broker 2
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node2\config\server.properties"
+
+-- start broker 3
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node3\config\server.properties"
+
+
+-- create topic with one partitiona and replication-factor 3
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic first_topic --partitions 1 --replication-factor 3
+
+-- describe topic
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic first_topic
+
+-- start producer
+kafka-console-producer.bat --bootstrap-server localhost:9092 --topic first_topic
+
+
+-- start consumer
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic --group g1 --from-beginning
+
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group g1
+
+
+
+
+
+
+==============================================
+## this is for KafkaConsumerSubscribeAppk and KafkaConsumerAssignApp Java classes test from eclipse
+## KafkaDemoApp project
+
+-- start zookeeper
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\zookeeper.properties"
+
+-- start broker 1
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\server.properties"
+
+
+-- create topic with 3 partitions and replication-factor 1
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic my_topic --partitions 3 --replication-factor 1
+
+-- describe topic
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic my_topic
+
+
+-- create topic with 3 partitions and replication-factor 1
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic my_other_topic --partitions 3 --replication-factor 1
+
+-- describe topic
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic my_other_topic
+
+
+## to generate producer messages dynamically. we can use below script
+
+kafka-producer-perf-test.bat --topic my-topic --num-records 50 --throughput 10 --record-size 1 --producer-props bootstrap-servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer
+
+kafka-producer-perf-test.bat --topic my-other-topic --num-records 50 --throughput 10 --record-size 1 --producer-props bootstrap-servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer
+
+

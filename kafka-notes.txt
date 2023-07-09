@@ -1,0 +1,38 @@
+
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\zookeeper.properties"
+
+
+kafka-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\server.properties"
+
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic first_topic
+
+
+kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe first_topic
+
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic second_topic --partitions 3 
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic second_topic
+
+##we need to create 2 broker inorder make replication-factor 2
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic second_topic --partitions 3 --replication-factor 2
+
+## first_topic
+kafka-console-producer.bat --bootstrap-server localhost:9092 --topic first_topic
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+
+
+## second_topic
+kafka-console-producer.bat --bootstrap-server localhost:9092 --topic second_topic
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic second_topic --group g1
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic second_topic --group g1
+
+
+

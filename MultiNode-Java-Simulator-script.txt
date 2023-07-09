@@ -1,0 +1,94 @@
+-- start zookeeper
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\zookeeper.properties"
+
+-- start broker 1
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\server.properties"
+
+-- start broker 2
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node2\config\server.properties"
+
+-- start broker 3
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node3\config\server.properties"
+
+
+-- create topic with one partitiona and replication-factor 3
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic first_topic --partitions 1 --replication-factor 3
+
+-- describe topic
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic first_topic
+
+-- start producer
+kafka-console-producer.bat --bootstrap-server localhost:9092 --topic first_topic
+
+
+-- start consumer
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic --group g1 --from-beginning
+
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group g1
+==============================================================
+## this is for KafkaProducerApp Java classes test from eclipse
+## KafkaDemoApp project
+
+-- start zookeeper
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\zookeeper.properties"
+
+-- start broker 1
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\server.properties"
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first_topic --group g1 --from-beginning
+
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group g1
+
+==========================================================================
+## this is for KafkaConsumerSubscribeApp and KafkaConsumerAssignApp Java classes test from eclipse
+## KafkaDemoApp project
+
+-- start zookeeper
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\zookeeper.properties"
+
+-- start broker 1
+kafka-server-start.bat "C:\PracticeJava\Kafka\MultiNode\Node1\config\server.properties"
+
+
+-- create topic with 3 partitions and replication-factor 1
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic my_topic --partitions 3 
+
+-- describe topic
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic my_topic
+
+-- create topic with 3 partitions and replication-factor 1
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic my_other_topic --partitions 3
+
+-- describe topic
+kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic my_other_topic
+
+
+## to generate producer messages dynamically. we can use below script
+## execute it from gitbash it will work. it throws logger error but it produces records
+
+bin/kafka-producer-perf-test.sh --topic my_topic --num-records 50 --throughput 10 --producer-props bootstrap.servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer --record-size 1
+
+
+
+bin/kafka-producer-perf-test.sh --topic my_other_topic --num-records 50 --throughput 10 --producer-props bootstrap.servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer --record-size 1
+
+
+kafka-console-producer.bat --bootstrap-server localhost:9092 --topic my_topic
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic my_topic --group g2 --from-beginning
+
+
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group g2
+
+
+-- alter topic with 4 partitions 
+kafka-topics.bat --bootstrap-server localhost:9092 --alter --topic my_topic --partitions 4
+
+
+## to see both cosumers consuming same topic open another KafkaConsumerSubscribeApp in another console-consumer and observe 2 partitions data is consuming by one app , other is by other app
+ 
