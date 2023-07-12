@@ -70,11 +70,11 @@ kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic my_other_t
 ## to generate producer messages dynamically. we can use below script
 ## execute it from gitbash it will work. it throws logger error but it produces records
 
-bin/kafka-producer-perf-test.sh --topic my_topic --num-records 50 --throughput 10 --producer-props bootstrap.servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer --record-size 1
+bin/kafka-producer-perf-test.sh --topic my_topic --num-records 500 --throughput 10 --producer-props bootstrap.servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer --record-size 10
 
 
 
-bin/kafka-producer-perf-test.sh --topic my_other_topic --num-records 50 --throughput 10 --producer-props bootstrap.servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer --record-size 1
+bin/kafka-producer-perf-test.sh --topic my_other_topic --num-records 500 --throughput 10 --producer-props bootstrap.servers=localhost:9092 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer --record-size 1
 
 
 kafka-console-producer.bat --bootstrap-server localhost:9092 --topic my_topic
@@ -83,7 +83,7 @@ kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic my_topic --
 
 
 kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
-kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group g2
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group test
 
 
 -- alter topic with 4 partitions 

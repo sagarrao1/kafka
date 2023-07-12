@@ -1,6 +1,7 @@
 package com.sagar.kafka;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -24,6 +25,10 @@ public class KafkaConsumerSubscribeApp {
 		topics.add("my_topic");
 		topics.add("my_other_topic");
 		
+////		if it is one topic to subscribe
+//		myConsumer.subscribe(Arrays.asList("my_topic"));		
+		
+//		multiple topics
 		myConsumer.subscribe(topics);
 		
 		try {
