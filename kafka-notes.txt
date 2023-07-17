@@ -1,7 +1,6 @@
 
 zookeeper-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\zookeeper.properties"
 
-
 kafka-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\server.properties"
 
 kafka-topics.bat --bootstrap-server localhost:9092 --create --topic first_topic
@@ -36,3 +35,11 @@ kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic second_topi
 
 
 
+
+#avro schema generation command
+# go to schemas directory and execute in bash shell. schema will be generated in compiled-schemas/
+
+ java -jar avro-tools-1.8.2.jar compile schema user_schema.avsc ../compiled-schemas/.
+
+# to see generated schemas
+less com/pluralsight/kafka/model/User.java

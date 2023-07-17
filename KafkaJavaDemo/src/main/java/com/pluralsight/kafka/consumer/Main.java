@@ -1,15 +1,16 @@
 package com.pluralsight.kafka.consumer;
 
 
-import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
+import static java.util.Arrays.asList;
 
 import java.time.Duration;
 import java.util.Properties;
 
-import static java.util.Arrays.asList;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Main {
@@ -32,6 +33,9 @@ public class Main {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
             for (ConsumerRecord<String, String> record : records) {
+            	log.info("Consuming Kafka record: " + record.key() + ":" + record.value());
+            	System.out.println("Consuming Kafka record: " + record.key() + ":" + record.value());
+            	
                 suggestionEngine.processSuggestions(record.key(), record.value());
             }
         }

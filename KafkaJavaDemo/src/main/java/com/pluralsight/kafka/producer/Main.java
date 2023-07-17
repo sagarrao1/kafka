@@ -36,7 +36,7 @@ public class Main {
 				log.info("Producing to Kafka the record: " + key + ":" + value);
 				
 				myProducer.send(myRecord);	
-//				System.out.println("Producing to Kafka the record: " + key + ":" + value);
+				System.out.println("Producing to Kafka the record: " + key + ":" + value);
 				
 				try {
 					Thread.sleep(1000);
@@ -55,12 +55,12 @@ public class Main {
 	}
 	
 	private	static String extractKey(Event event) {
-		return event.getUser().getUserId().toString();
+		return event.getInternalUser().getUserId().toString();
 		
 	}
 
 	private	static String extractValue(Event event) {
-		return String.format("%s,%s,%s", event.getProduct().getType(), event.getProduct().getColor(), event.getProduct().getDesignType());
+		return String.format("%s,%s,%s", event.getInternalProduct().getType(), event.getInternalProduct().getColor(), event.getInternalProduct().getDesignType());
 		
 	}
 }

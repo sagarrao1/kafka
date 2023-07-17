@@ -1,7 +1,7 @@
 package com.pluralsight.kafka.consumer;
 
 import com.pluralsight.kafka.consumer.model.PreferredProduct;
-import com.pluralsight.kafka.consumer.model.User;
+import com.pluralsight.kafka.consumer.model.ConsumerUser;
 import com.pluralsight.kafka.consumer.service.UserDB;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +24,7 @@ public class SuggestionEngine {
                 "of color " + productColor + " and design " + productDesign);
 
         // Retrieve preferences from Database
-        User user = userDB.findByID(userId);
+        ConsumerUser user = userDB.findByID(userId);
 
         // Update user preferences
         user.getPreferences()

@@ -22,7 +22,7 @@ __consumer_offsets 2 0
 __consumer_offsets 6 0
 __consumer_offsets 14 0
 __consumer_offsets 20 0
-__consumer_offsets 0 0
+__consumer_offsets 0 23
 __consumer_offsets 44 0
 my_other_topic 2 45
 __consumer_offsets 12 0

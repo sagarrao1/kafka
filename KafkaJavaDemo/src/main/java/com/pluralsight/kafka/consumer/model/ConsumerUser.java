@@ -13,15 +13,15 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class ConsumerUser {
 
-    public User(UserId userId) {
-        this.userId = userId;
+    public ConsumerUser(UserId consumerUserId) {
+        this.consumerUserId = consumerUserId;
         this.preferences = new ArrayList<>();
         this.suggestions = new ArrayList<>();
     }
 
-    private UserId userId;
+    private UserId consumerUserId;
 
     private List<PreferredProduct> preferences;
 

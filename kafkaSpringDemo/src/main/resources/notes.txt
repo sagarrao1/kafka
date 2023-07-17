@@ -1,0 +1,9 @@
+
+produce json record using postman
+
+json message
+
+{
+    "bookName":"My Book 2",
+    "isdn":"1235"
+}

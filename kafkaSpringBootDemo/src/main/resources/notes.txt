@@ -1,0 +1,33 @@
+
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\zookeeper.properties"
+
+kafka-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\server.properties"
+
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic javaguide
+
+
+kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe javaguide
+
+javaguide-group
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javaguide --group javaguide-group
+
+
+
+json msg
+
+
+{
+    "id":"1",
+    "fName":"Sagar",
+    "lName": "Rao"
+}
+
+
+Streaming events data
+
+https://stream.wikimedia.org/v2/stream/recentchange
