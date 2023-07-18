@@ -1,4 +1,4 @@
-package com.dailycode;
+package com.dailycode.producer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -19,6 +19,7 @@ public class DemoController {
 	
 	private static final String TOPIC="first_topic";
 	
+//	publishing String message to kafka topic
 	
 //	@GetMapping("/publish/{message}" )
 //	public String publishMessage(@PathVariable String message) {
@@ -28,6 +29,8 @@ public class DemoController {
 //	}
 	
 
+	
+//	publishing json message to kafka topic
 	@PostMapping("/publish" )
 	public String publishMessage(@RequestBody Book book) {
 		

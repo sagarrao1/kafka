@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dailycode.kafka</groupId>
-	<artifactId>kafkaSpringDemo</artifactId>
+	<artifactId>02-kafkaSpringDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kafkaSpringDemo</name>
+	<name>02-kafkaSpringDemo</name>
 	<description>Microservices spring-cloud-config-server practice</description>
 	<properties>
 		<java.version>11</java.version>

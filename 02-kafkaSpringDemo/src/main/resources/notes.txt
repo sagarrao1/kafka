@@ -1,5 +1,13 @@
 
+start kafka zookeeper and kafka server by following
+kafka-notes.txt
+
+Using controller we will produce rest api Json message
 produce json record using postman
+
+http://localhost:8081/publish
+
+post message : body as json
 
 json message
 
@@ -7,3 +15,13 @@ json message
     "bookName":"My Book 2",
     "isdn":"1235"
 }
+
+json message is published to kafka topic first_topic
+
+consumer KafkaConsumer app will consume using kafkaListner
+
+kafka consumer config will be in KafkaComsumerConfig.java 
+we need to use @EnableKafka annotation
+
+
+

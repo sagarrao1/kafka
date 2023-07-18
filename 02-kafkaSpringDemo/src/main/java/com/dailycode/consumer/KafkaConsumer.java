@@ -8,16 +8,16 @@ import com.dailycode.model.Book;
 @Component
 public class KafkaConsumer {
 
-	@KafkaListener(topics="first_topic", groupId = "g1")
-	public void consumer(String msg) {
-		
-		System.out.println("message : "+msg);
-	}
-	
-//	@KafkaListener(topics="first_topic", groupId = "g1", containerFactory = "bookKafkaListenerContainerFactory")
-//	public void consumer(Book book) {
+//	@KafkaListener(topics="first_topic", groupId = "g1")
+//	public void consumer(String msg) {
 //		
-//		System.out.println(book);
+//		System.out.println("message : "+msg);
 //	}
+	
+	@KafkaListener(topics="first_topic", groupId = "g1", containerFactory = "bookKafkaListenerContainerFactory")
+	public void consumer(Book book) {
+		
+		System.out.println(book);
+	}
 	
 }

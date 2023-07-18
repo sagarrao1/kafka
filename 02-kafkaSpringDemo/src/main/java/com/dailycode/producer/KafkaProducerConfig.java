@@ -1,4 +1,4 @@
-package com.dailycode.config;
+package com.dailycode.producer;
 
 import java.util.HashMap;
 import java.util.Map;

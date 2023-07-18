@@ -1,4 +1,4 @@
-package com.dailycode.config;
+package com.dailycode.consumer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,26 +26,26 @@ import com.dailycode.model.Book;
 public class KafkaComsumerConfig {
 
 	
-	@Bean
-	public ConsumerFactory<String, String> cosumerFactory(){
-		
-		Map<String,Object> config= new HashMap<>();
-		
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "g1");
-				
-		return new DefaultKafkaConsumerFactory<>(config);
-	}
-	
-	@Bean
-	public  ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-		
-		ConcurrentKafkaListenerContainerFactory<String, String> factory= new ConcurrentKafkaListenerContainerFactory<>();
-		factory.setConsumerFactory(cosumerFactory());
-		return factory;		
-	}
+//	@Bean
+//	public ConsumerFactory<String, String> cosumerFactory(){
+//		
+//		Map<String,Object> config= new HashMap<>();
+//		
+//		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+//		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+//		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+//		config.put(ConsumerConfig.GROUP_ID_CONFIG, "g1");
+//				
+//		return new DefaultKafkaConsumerFactory<>(config);
+//	}
+//	
+//	@Bean
+//	public  ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+//		
+//		ConcurrentKafkaListenerContainerFactory<String, String> factory= new ConcurrentKafkaListenerContainerFactory<>();
+//		factory.setConsumerFactory(cosumerFactory());
+//		return factory;		
+//	}
 	
 	
 	
