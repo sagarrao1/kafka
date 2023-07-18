@@ -17,9 +17,18 @@ javaguide-group
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javaguide --group javaguide-group
 
 
+1. Normal message publishing
+open below url in browser
+http:localhost:8080/api/v1/kafka/publish?message=Hello world
 
-json msg
+producing normal msg using MyKafkaProducer and MessageController java classes
 
+
+2. produce json msg 
+
+produce json msg using postman
+
+http://localhost:8080/api/v1/kafka/publishJson
 
 {
     "id":"1",
@@ -28,6 +37,3 @@ json msg
 }
 
 
-Streaming events data
-
-https://stream.wikimedia.org/v2/stream/recentchange

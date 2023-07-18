@@ -6,15 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javaguide.kafka.producer.kafkaProducer;
+import com.javaguide.kafka.producer.MyKafkaProducer;
 
 @RestController
 @RequestMapping("/api/v1/kafka")
 public class MessageController {
 
-	private kafkaProducer kafkaProducer;
+	
+//	No need to use autoWired as we have only one parameter constructor . it will wire automatically
+	
+	private MyKafkaProducer kafkaProducer;
 
-	public MessageController(com.javaguide.kafka.producer.kafkaProducer kafkaProducer) {
+	public MessageController(MyKafkaProducer kafkaProducer) {
 		this.kafkaProducer = kafkaProducer;
 	}
 	

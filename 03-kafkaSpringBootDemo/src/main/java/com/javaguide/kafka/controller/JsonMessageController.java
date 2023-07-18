@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaguide.kafka.payload.User;
-import com.javaguide.kafka.producer.JsonkafkaProducer;
-import com.javaguide.kafka.producer.kafkaProducer;
+import com.javaguide.kafka.producer.JsonKafkaProducer;
+import com.javaguide.kafka.producer.MyKafkaProducer;
 
 @RestController
 @RequestMapping("/api/v1/kafka")
 public class JsonMessageController {
 
-	private JsonkafkaProducer jsonkafkaProducer;
+	private JsonKafkaProducer jsonkafkaProducer;
 
-	public JsonMessageController(JsonkafkaProducer jsonkafkaProducer) {
+	public JsonMessageController(JsonKafkaProducer jsonkafkaProducer) {
 		this.jsonkafkaProducer = jsonkafkaProducer;
 	}
 	
 	
-	@PostMapping("/publish")
+	@PostMapping("/publishJson")
 	public ResponseEntity<String> publishJsonMsg(@RequestBody  User user) {
 		jsonkafkaProducer.sendMessage(user);		
-		return ResponseEntity.ok("Json Message sent to kafka topic");		
+		return ResponseEntity.ok("Json Message sent to kafka topic javaguide_json successfully");		
 	}
 	
 	
