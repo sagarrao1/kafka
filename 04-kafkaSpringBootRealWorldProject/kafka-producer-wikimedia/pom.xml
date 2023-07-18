@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.javaguide.springboot</groupId>
-		<artifactId>kafka-SpringBoot-Real-World-Project</artifactId>
+		<artifactId>04-kafka-SpringBoot-Real-World-Project</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>kafka-producer-wikimedia</artifactId>

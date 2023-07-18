@@ -4,26 +4,25 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.javaguide.springboot</groupId>
-		<artifactId>kafka-SpringBoot-Real-World-Project</artifactId>
+		<artifactId>04-kafka-SpringBoot-Real-World-Project</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>kafka-comsumer-database</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/com.launchdarkly/okhttp-eventsource -->
-		<!-- <dependency>
-			<groupId>com.launchdarkly</groupId>
-			<artifactId>okhttp-eventsource</artifactId>
-			<version>2.7.1</version>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
- -->
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-		<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-core</artifactId> 
-			<version>2.14.2</version> </dependency> -->
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-		<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId> 
-			<version>2.14.2</version> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.0.32</version>
+		</dependency>
+
 
 	</dependencies>
 

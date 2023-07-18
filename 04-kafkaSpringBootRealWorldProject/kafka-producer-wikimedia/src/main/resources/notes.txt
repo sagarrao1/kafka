@@ -42,3 +42,20 @@ https://stream.wikimedia.org/v2/stream/recentchange
 
 
 
+
+
+sagar
+Admin
+
+
+Spring boot application.properties for mysql
+
+
+#mysql Db properties
+spring.datasource.url=jdbc:mysql://localhost:3306/hibdb
+spring.datasource.username=root
+spring.datasource.password=admin
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+

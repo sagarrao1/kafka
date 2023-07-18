@@ -11,7 +11,7 @@
 	<groupId>com.javaguide.springboot</groupId>
 	<artifactId>04-kafka-SpringBoot-Real-World-Project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kafkaSpringBootRealWorldProject</name>
+	<name>04-kafkaSpringBootRealWorldProject</name>
 	<description>springBoot kafka practice</description>
 	<packaging>pom</packaging>
 	<properties>
