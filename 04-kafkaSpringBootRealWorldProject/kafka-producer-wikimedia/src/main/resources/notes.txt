@@ -1,0 +1,44 @@
+========= executing steps
+
+1. start kafka zookeeper and kafka server
+2. run SpringBootProducerApplication to produce messages and terminate as it real time
+ msgs , we will have lot of msgs to produce to kafka topic
+
+3. run SpringBootConsumerApplication to consume msgs from kafka topic
+
+
+zookeeper-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\zookeeper.properties"
+
+kafka-server-start.bat "C:\PracticeJava\Kafka\binaries\kafka\config\server.properties"
+
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic javaguide
+
+
+kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe
+
+kafka-topics.bat --bootstrap-server localhost:9092 --describe wikimedia_topic
+
+javaguide-group
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic wikimedia_topic --group wikimedia_topic-group
+
+
+
+json msg
+
+
+{
+    "id":"1",
+    "fName":"Sagar",
+    "lName": "Rao"
+}
+
+
+Streaming events data
+
+https://stream.wikimedia.org/v2/stream/recentchange
+
+
+
